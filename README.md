@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+
+# Getting Started with hn-blog
+
+## npm install
+Run 'npm install' command from the project root directory to install the required dependencies.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
