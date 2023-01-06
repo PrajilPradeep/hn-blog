@@ -9,10 +9,15 @@ const Home = () => {
         {title:"learning more",body:"My next plan is to learn more about React and other front end technologies. Whish me luck :p",author:"Prajil Luther King",id:3},
         {title:"becoming the ceo of Google",body:"I think this is self explanatory. I must save google.",author:"Prajil Luther King II",id:4}
     ]);
+
+    const handleDeleteBlog = (id)=>{
+        const newBlogs =  blogs.filter(blog=> blog.id != id);
+        setBlogs(newBlogs);
+    }
     
     return ( 
         <div className="home">
-           <BlogList blogs = {blogs} title="All blogs!"/>  
+           <BlogList blogs = {blogs} title="All blogs!" handleDeleteBlog={handleDeleteBlog}/>  
         </div>   
      );
     }
