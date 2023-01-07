@@ -8,7 +8,7 @@ const Home = () => {
     const [error,setError] = useState(null);
 
     useEffect(()=>{
-        fetch("http://localhost:8000/blogs")
+        fetch("http://localhost:8000/blogsg")
         .then((res) => {
             if(!res.ok){
                 throw Error("Failed to fetch data for the resource");
@@ -21,7 +21,9 @@ const Home = () => {
             setBlogs(data);
             setIsPending(false);
         })
-        .catch((err)=> setError(err.message));
+        .catch((err)=> {
+            setIsPending(false); /*To remove loading message on getting an error*/
+            setError(err.message)}); 
     },[]);
 
     return ( 
