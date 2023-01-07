@@ -1,5 +1,7 @@
+import {useState, useEffect} from 'react';
+
 const useFetch = () => {
-    
+
     const [blogs,setBlogs] = useState(null);
     const [isPending,setIsPending] = useState(true);
     const [error,setError] = useState(null);
@@ -23,6 +25,8 @@ const useFetch = () => {
             setIsPending(false); /*To remove loading message on getting an error*/
             setError(err.message)}); 
     },[]);
+
+    return {blogs, isPending, error}; //to return state properties as js object
 
 }
 
