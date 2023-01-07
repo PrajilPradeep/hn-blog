@@ -8,7 +8,7 @@ const Home = () => {
     const [error,setError] = useState(null);
 
     useEffect(()=>{
-        fetch("http://localhost:8000/blogsg")
+        fetch("http://localhost:8000/blogs")
         .then((res) => {
             if(!res.ok){
                 throw Error("Failed to fetch data for the resource");
