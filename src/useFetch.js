@@ -12,11 +12,11 @@ const useFetch = (url) => {
             if(!res.ok){
                 throw Error("Failed to fetch data for the resource");
             }
-            // console.log(res);
+            //console.log(res);
             return res.json();
         })
         .then ((data)=>{
-            // console.log(data);
+            //console.log(data);
             setData(data);
             setIsPending(false); 
             setError(null); /* To remove previous error message (If exist) for subsequent requests.*/
@@ -24,9 +24,9 @@ const useFetch = (url) => {
         .catch((err)=> {
             setIsPending(false); /*To remove loading message on getting an error*/
             setError(err.message)}); 
-    },[]);
+    },[url]);
 
-    return {data, isPending, error}; //to return state properties as js object
+    return {data,isPending, error}; //to return state properties as js object
 
 }
 
