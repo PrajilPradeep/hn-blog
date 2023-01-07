@@ -8,11 +8,19 @@ const Home = () => {
 
     useEffect(()=>{
         fetch("http://localhost:8000/blogs")
-        .then(res => res.json())
+        .then((res) => {
+            if(!res.ok){
+                throw Error("Failed to fetch data for the resource");
+            }
+            // console.log(res);
+            return res.json();
+        })
         .then ((data)=>{
+            // console.log(data);
             setBlogs(data);
             setIsPending(false);
         })
+        .catch((err)=>console.log(err.message));
         
     },[]);
 
