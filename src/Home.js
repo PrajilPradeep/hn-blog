@@ -5,6 +5,7 @@ const Home = () => {
 
     const [blogs,setBlogs] = useState(null);
     const [isPending,setIsPending] = useState(true);
+    const [error,setError] = useState(null);
 
     useEffect(()=>{
         fetch("http://localhost:8000/blogs")
@@ -20,14 +21,12 @@ const Home = () => {
             setBlogs(data);
             setIsPending(false);
         })
-        .catch((err)=>console.log(err.message));
-        
+        .catch((err)=> setError(err.message));
     },[]);
-
-    
 
     return ( 
         <div className="home">
+            { error && <div className="errorMessage">{error}</div> }
             { isPending && <div className="loading">Loading...!</div> }
             { blogs && <BlogList blogs = {blogs} title="All blogs!" />}
         </div>   
