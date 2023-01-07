@@ -19,7 +19,8 @@ const Home = () => {
         .then ((data)=>{
             // console.log(data);
             setBlogs(data);
-            setIsPending(false);
+            setIsPending(false); 
+            setError(null); /* To remove previous error message (If exist) for subsequent requests.*/
         })
         .catch((err)=> {
             setIsPending(false); /*To remove loading message on getting an error*/
