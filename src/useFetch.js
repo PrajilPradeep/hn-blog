@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 
 const useFetch = () => {
 
-    const [blogs,setBlogs] = useState(null);
+    const [data,setData] = useState(null);
     const [isPending,setIsPending] = useState(true);
     const [error,setError] = useState(null);
 
@@ -17,7 +17,7 @@ const useFetch = () => {
         })
         .then ((data)=>{
             // console.log(data);
-            setBlogs(data);
+            setData(data);
             setIsPending(false); 
             setError(null); /* To remove previous error message (If exist) for subsequent requests.*/
         })
@@ -26,7 +26,7 @@ const useFetch = () => {
             setError(err.message)}); 
     },[]);
 
-    return {blogs, isPending, error}; //to return state properties as js object
+    return {data, isPending, error}; //to return state properties as js object
 
 }
 
