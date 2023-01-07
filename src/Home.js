@@ -11,14 +11,19 @@ const Home = () => {
     }
 
     useEffect(()=>{
-        console.log("useEffect hook is called !");
+        fetch("http://localhost:8000/blogs")
+        .then(res => res.json())
+        .then ((data)=>{
+            setBlogs(data);
+        })
+        
     },[]);
 
     
 
     return ( 
         <div className="home">
-           <BlogList blogs = {blogs} title="All blogs!" handleDeleteBlog={handleDeleteBlog}/> 
+           { blogs && <BlogList blogs = {blogs} title="All blogs!" handleDeleteBlog={handleDeleteBlog}/>}
         </div>   
      );
     }
