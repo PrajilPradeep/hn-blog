@@ -6,8 +6,14 @@ const useFetch = (url) => {
     const [isPending,setIsPending] = useState(true);
     const [error,setError] = useState(null);
 
+    
+
     useEffect(()=>{
-        fetch(url)
+
+        const abortCont = new AbortController(); //To stop fetch for the unmounted component.
+
+        fetch(url, {signal: abortCont.signal}) //associating AbortController with the fetch request.
+
         .then((res) => {
             if(!res.ok){
                 throw Error("Failed to fetch data for the resource");
@@ -23,7 +29,10 @@ const useFetch = (url) => {
         })
         .catch((err)=> {
             setIsPending(false); /*To remove loading message on getting an error*/
-            setError(err.message)}); 
+            setError(err.message)
+        }); 
+
+        return () => abortCont.abort(); // to abort whatever fetch is associated with the fetch request.
 
     },[url]);
 
