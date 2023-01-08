@@ -9,7 +9,13 @@ const Create = () => {
     const handleSubmit = (e) =>{
         e.preventDefault();
         const newBlog = {title, body, author};
-        // console.log(newBlog);
+
+        fetch('http://localhost:8000/blogs/',{
+            method: "POST",
+            headers: {"content-type":"application/json"},
+            body: JSON.stringify(newBlog)
+        })
+        .then(()=>{console.log("New blog added.");});
     }
     return ( 
         <div className="create">
