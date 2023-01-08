@@ -24,6 +24,7 @@ const useFetch = (url) => {
         .catch((err)=> {
             setIsPending(false); /*To remove loading message on getting an error*/
             setError(err.message)}); 
+
     },[url]);
 
     return {data,isPending, error}; //to return state properties as js object
