@@ -8,6 +8,8 @@ const Create = () => {
 
     const handleSubmit = (e) =>{
         e.preventDefault();
+        const newBlog = {title, body, author};
+        // console.log(newBlog);
     }
     return ( 
         <div className="create">
