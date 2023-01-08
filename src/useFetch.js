@@ -28,8 +28,12 @@ const useFetch = (url) => {
             setError(null); /* To remove previous error message (If exist) for subsequent requests.*/
         })
         .catch((err)=> {
-            setIsPending(false); /*To remove loading message on getting an error*/
-            setError(err.message)
+            if (err.name === "AbortError") { //prevent state update on AbortError
+                console.log("Request aborted"); 
+            }else{
+                setIsPending(false); /*To remove loading message on getting an error*/
+                setError(err.message)
+            }
         }); 
 
         return () => abortCont.abort(); // to abort whatever fetch is associated with the fetch request.
