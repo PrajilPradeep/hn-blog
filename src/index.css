@@ -75,6 +75,15 @@
   margin: 20px 0px;
 }
 
+.blog-details button{
+  background-color: #f1356d;
+  padding: 8px;
+  border-radius: 8px;
+  border: 0;
+  color:#fff;
+  cursor: pointer;
+}
+
 /* Create new blog */
 .create{
   max-width: 400px;
