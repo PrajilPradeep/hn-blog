@@ -35,6 +35,12 @@
       "body": "def",
       "author": "gert",
       "id": 6
+    },
+    {
+      "title": "test",
+      "body": "testing",
+      "author": "robot",
+      "id": 7
     }
   ]
 }
