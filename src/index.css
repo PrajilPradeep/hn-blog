@@ -138,3 +138,23 @@
   border-radius: 8px;
   cursor: pointer;
 }
+
+/* Page not found */
+
+.not-found{
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  padding: 12px; 
+}
+
+.not-found h2, .not-found h3{
+  padding: 10px 0;
+}
+
+.not-found a{
+  text-decoration: none;
+}
+
+.not-found a:hover{
+  color: var(--main-color);
+}
