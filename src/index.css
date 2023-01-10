@@ -40,7 +40,7 @@
 }
 
 .navbar a:hover {
-  color: var(--main-color);
+  color: white;
 }
 
 .content {
