@@ -20,10 +20,13 @@
   max-width: 600px;
   margin: 0 auto;
   border-bottom: 1px solid #f2f2f2;
+  background-color: var(--main-color);
+  border-radius: 8px;
+
 }
 
 .navbar h1 {
-  color: var(--main-color);
+  color: black;
 }
 
 .navbar .links {
